@@ -1,0 +1,33 @@
+version: '2'
+services:
+  rtdb:
+    image: oge/kdm-rtdb-vzdb:1.2.0
+    ports:
+      - ${rtdb_vzdb_port}:8040
+    external_links:
+      - vzdb:rtdbHost
+    environment:
+      spring.application.name: kdm-rdp-rtdb-vzdb-${server_name}
+      kdm.rtdb.host: rtdbHost
+      kdm.rtdb.port: ${rtdb_port}
+      kdm.rtdb.username: ${rtdb_username}
+      kdm.rtdb.password: ${rtdb_password}
+      kdm.rtdb.rule: ${rtdb_rule}
+    volumes:
+      - /home/oge/oge_logs/kdm-rdp-rtdb-vzdb-${rtdb_vzdb_port}/:/oge/log
+      - /etc/localtime:/etc/localtime:ro
+    container_name: kdm-rdp-rtdb-vzdb-${rtdb_vzdb_port}
+  
+  vzdb:
+    image: docker.orientge.cn:5000/oge/vzdb:2.72.1
+    ports:
+      - ${vzdb_port}:22235/tcp
+      - ${vzevt_port}:22136/tcp
+    # environment:
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/oge/oge_data/vzdb-${vzdb_port}/model/:/oge/vzdb/model
+      - /home/oge/oge_data/vzdb-${vzdb_port}/cache/:/oge/vzdb/cache
+      - /home/oge/oge_data/vzdb-${vzdb_port}/data/:/oge/vzdb/data
+      - /home/oge/oge_logs/vzdb-${vzdb_port}/:/oge/vzdb/log
+    container_name: ${vzdb_name}
