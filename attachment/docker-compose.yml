@@ -16,7 +16,7 @@ services:
     volumes:
       - /home/oge/oge_logs/kdm-rdp-rtdb-vzdb-${rtdb_vzdb_port}/:/oge/log
       - /etc/localtime:/etc/localtime:ro
-    container_name: kdm-rdp-rtdb-vzdb-${rtdb_vzdb_port}
+    container_name: kdm1111111-rdp-rtdb-vzdb-${rtdb_vzdb_port}
   
   vzdb:
     image: docker.orientge.cn:5000/oge/vzdb:2.72.1
@@ -30,4 +30,4 @@ services:
       - /home/oge/oge_data/vzdb-${vzdb_port}/cache/:/oge/vzdb/cache
       - /home/oge/oge_data/vzdb-${vzdb_port}/data/:/oge/vzdb/data
       - /home/oge/oge_logs/vzdb-${vzdb_port}/:/oge/vzdb/log
-    container_name: ${vzdb_name}
+    container_name: kdm2222${vzdb_name}
