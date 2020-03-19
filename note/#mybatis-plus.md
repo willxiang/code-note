@@ -28,7 +28,7 @@ mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 ---
 
 ### 分页配置
-```
+```java
 @Configuration
 @EnableTransactionManagement
 public class MyBatisPlusConfig {
@@ -41,3 +41,24 @@ public class MyBatisPlusConfig {
     }
 }
 ```
+
+---
+
+### 配置mapper package扫描路径
+
+直接在Application.java类中注解配置：
+
+```java
+@MapperScan("com.baomidou.mybatisplus.samples.crud.mapper")
+```
+
+或单独新增一个配置类，在配置类上增加注解：
+
+```java
+@Configuration
+@MapperScan("com.baomidou.mybatisplus.samples.crud.mapper")
+public class MybatisPlusConfig {
+
+}
+```
+
