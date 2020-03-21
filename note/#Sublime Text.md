@@ -17,6 +17,7 @@ import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe0
 ```
 计算机\HKEY_CLASSES_ROOT\*\shell\
 计算机\HKEY_CLASSES_ROOT\Directory\shell\
+计算机\HKEY_CLASSES_ROOT\Directory\Background\shell\
 ```
 
 带`Directory`的路径下添加的话，可以直接右键打开整个文件夹，不带的则是针对文件的。
@@ -37,7 +38,7 @@ import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe0
 
 
 
-文件夹打开方式与上方的操作类似，只是在`command`项的数据中，第二个参数不同：
+文件夹打开方式与上方的操作类似，只是在`command`项的数据中，第二个参数不同（带`Background`的路径也一样）：
 
 ![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-03-20_17-53-13.jpg)
 
