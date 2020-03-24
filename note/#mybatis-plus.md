@@ -27,7 +27,9 @@ mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 
 ---
 
-### 分页配置
+### 分页
+
+配置：
 ```java
 @Configuration
 @EnableTransactionManagement
@@ -41,6 +43,43 @@ public class MyBatisPlusConfig {
     }
 }
 ```
+
+service实现类中可以直接使用`com.baomidou.mybatisplus.core.mapper.BaseMapper`的`selectPage`方法：
+```java
+@service 
+public IPage getGoodsPage(Page page, Goods goods) {
+        QueryWrapper<Goods> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("goods_name", goods.getGoodsName());
+        return baseMapper.selectPage(page, queryWrapper);
+    }
+
+@controller 
+@GetMapping("/page")
+    public Object getGoodsPage(Page page, Goods goods) {
+        return goodsService.getGoodsPage(page, goods);
+    }
+```
+
+此方法返回`Page`对象，该对象包含：
+
+```java
+	private List<T> records;
+    private long total;
+    private long size;
+    private long current;
+    private List<OrderItem> orders;
+    private boolean optimizeCountSql;
+    private boolean isSearchCount;
+    private boolean hitCount;
+```
+
+其中常见常用的分页属性有：total（数据总数），size（一页显示多少条数），current（当前是第几页）。
+
+前端查询时传入current，size即可实现分页。
+
+
+
+![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-03-23_20-46-31.jpg)
 
 ---
 

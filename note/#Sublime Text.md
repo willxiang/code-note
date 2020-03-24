@@ -12,7 +12,7 @@ import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe0
 
 ##### windows 右键添加快捷打开
 
-打开注册表（Win键+`regedit`），跳转到以下位置：
+打开注册表（Win键+R+`regedit`），跳转到以下位置：
 
 ```
 计算机\HKEY_CLASSES_ROOT\*\shell\
