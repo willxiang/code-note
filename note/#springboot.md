@@ -1,3 +1,21 @@
+[TOC]
+
+### 开启文件上传功能
+
+```yaml
+spring:
+  servlet:
+    multipart:
+      enabled:true#开启文件上传
+      max-file-size:10MB#限制文件上传大小为10M
+```
+
+
+
+---
+
+
+
 ### springboot Linux shell 脚本 部署
 
 start.sh：
