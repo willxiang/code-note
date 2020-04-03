@@ -1,5 +1,41 @@
 [TOC]
 
+### maven依赖
+
+```xml
+		<!--MyBatis分页插件（引入这个依赖，同时也就等于引入了mybatis的依赖，所以无需重复引入mybatis）-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+
+        <!--集成druid连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+        <!-- MyBatis 生成器 -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.3</version>
+        </dependency>
+
+        <!--Mysql数据库驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
+        </dependency>
+```
+
+
+
+
+
 ### 打印SQL
 
 ```yaml
@@ -8,17 +44,8 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 ```
 
----
 
-### MybatisGenerator
 
-```xml
-<dependency>
-      <groupId>org.mybatis.generator</groupId>
-      <artifactId>mybatis-generator-core</artifactId>
-      <version>1.3.3</version>
-</dependency>
-```
 
 ```java
 //自定义注释生成器

@@ -1,3 +1,18 @@
+
+
+ 推送本地已存在仓库到云端
+
+```bash
+git remote add origin git@github.com:willxiang/willxiang.git
+git push -u origin master
+```
+
+
+
+---
+
+
+
 ##### 本地分支推送到远程（远程没有此分支就会自行创建）:
 
 ```
@@ -11,7 +26,7 @@ git push -u origin dev1:dev2
 
 ##### 手动关联本地分支与远程分支：
 
-```
+```bash
 git branch --set-upstream-to=origin/develop dev
 ```
 上述命令的动作就是，把本地叫做`dev`的分支与远程叫做`develop`的分支做关联。
@@ -117,9 +132,67 @@ cat id_rsa.pub
 ```
 
 ---
+##### git config 配置命令
+
+config配置有3个层级：
+
+- system（系统级别）
+- global（用户级别）
+- local（仓库级别）
+
+覆盖优先级为local > global > system。优先读取local，其次是global，最后是system。
+
+读取system级别的配置：
+
+```bash
+git config --system --list
+```
+
+读取global级别的配置：
+
+```bash
+git config --global --list
+```
+
+读取local级别的配置：
+
+```bash
+git config --local --list
+```
+
+如果想修改配置的话，加上不同的参数就可以在不同的级别上配置了。
+
+比如配置global级别的信息：
+
+```bash
+git config --global user.name "yourusername"
+git config --global user.email "youremail@email.com"
+```
+
+
+
+---
 ##### 删除untracked files:
 ```
 git clean -nfd
 ```
 `n`参数表示执行该命令时是测试模拟执行，不会真的执行，因为是删除文件操作，所以建议先执行带`n`的命令，查看好会删除哪些文件，确认后再去掉`n`执行。
+
+---
+
+##### 配置代理
+
+`shadowsocks`:
+
+```bash
+git config --global http.https://github.com.proxy https://127.0.0.1:1080
+git config --global https.https://github.com.proxy https://127.0.0.1:1080
+```
+
+`clash`：
+
+```bash
+git config --global http.https://github.com.proxy socks5://127.0.0.1:7891
+git config --global https.https://github.com.proxy socks5://127.0.0.1:7891
+```
 

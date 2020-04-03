@@ -1,4 +1,7 @@
-```
+#### springboot 日志写入到文件
+使用`logback`配置，在`resources`目录下新建`logback-spring.xml`:
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>demo1</contextName>
@@ -56,3 +59,4 @@
     </root>
 </configuration>
 ```
+
