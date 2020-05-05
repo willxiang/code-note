@@ -11,7 +11,7 @@ https://www.cnblogs.com/itdragon/p/8146439.html
 官方定义：索引（Index） 是帮助MySQL高效获取数据的数据结构。
 大家一定很好奇，索引为什么是一种数据结构，它又是怎么提高查询的速度？我们拿最常用的二叉树来分析索引的工作原理。看下面的图片：
 
-![](https://images2017.cnblogs.com/blog/806956/201801/806956-20180103215956799-1078068423.png)
+![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-05-05_11-32-51.jpg)
 
 
 
