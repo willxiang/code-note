@@ -1,5 +1,50 @@
 [TOC]
 
+### dev热部署
+
+子模块pom.xml
+
+```xml
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+</dependency>
+```
+
+父工程pom.xml
+
+```xml
+<build>
+<!--        <finalName></finalName>-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+```
+
+IDEA开启自动编译功能
+
+​	![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-04-24_13-17-02.jpg)
+
+`Ctrl+Shift+Alt+/`：
+
+![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-04-24_13-20-07.jpg)
+
+`Registry`：
+
+![](https://raw.githubusercontent.com/willxiang/code-note/master/img/Snipaste_2020-04-24_13-27-01.jpg)
+
+
+
 ### 开启文件上传功能
 
 ```yaml
