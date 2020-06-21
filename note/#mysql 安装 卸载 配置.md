@@ -33,6 +33,7 @@ basedir=D:\\App\\mysql-8.0.16-winx64
 max_connections=20
 # 服务端使用的字符集默认为8比特编码的latin1字符集
 character-set-server=utf8
+#character-set-server=utf8mb4  mysql 8
 # 创建新表时将使用的默认存储引擎
 default-storage-engine=INNODB
 ```
@@ -63,11 +64,16 @@ net start mysql
 mysql -h 主机名 -u 用户名 -p
 or
 mysql -u 用户名(root) -p
+or
+mysql -h 127.0.0.1 -uroot -p -P 端口号
 ```
 
 登录进mysql后，修改密码：
-```sql
+```bash
+# mysql 8 版本不适用password命令
 set password=password("123456");
+
+alter user 'root'@'localhost' identified by '设置的新密码'
 ```
 
 ---

@@ -1,6 +1,6 @@
 
 
- 推送本地已存在仓库到云端
+### 推送本地已存在仓库到云端
 
 ```bash
 git remote add origin git@github.com:willxiang/willxiang.git
@@ -11,11 +11,28 @@ git push -u origin master
 
 ---
 
+### 切换远端仓库地址
 
+查看当前远端地址：
 
-##### 本地分支推送到远程（远程没有此分支就会自行创建）:
-
+```bash
+git remote -v
+# origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+# origin  git@github.com:USERNAME/REPOSITORY.git (push)
 ```
+
+修改当前远端地址：
+
+```bash
+git remote set-url origin https://github.com/USERNAME/REPOSITORY_2.git
+git remote set-url origin git@github.com:USERNAME/REPOSITORY_2.git
+```
+
+---
+
+### 本地分支推送到远程（远程没有此分支就会自行创建）:
+
+```bash
 git push -u origin dev1:dev2
 ```
 
@@ -24,7 +41,7 @@ git push -u origin dev1:dev2
 
 ---
 
-##### 手动关联本地分支与远程分支：
+###  手动关联本地分支与远程分支：
 
 ```bash
 git branch --set-upstream-to=origin/develop dev
@@ -34,21 +51,21 @@ git branch --set-upstream-to=origin/develop dev
 ---
 
 查看本地与远程分支的关联情况：
-```
+```bash
 git branch -vv
 ```
 
 ---
-##### 切换到指定tag（与切换分支类似）
+### 切换到指定tag（与切换分支类似）
 
 先查看tag
-```
+```bash
 git tag
 ```
 选择好想要切换的tag（记住名字或者复制一下）即可
 
 
-```
+```bash
 git checkout -b new_dev_tag_branch_name target_tagname
 ```
 
@@ -62,17 +79,17 @@ git config --global push.default upstream
 
 ---
 
-##### 切换到远程的分支：
+### 切换到远程的分支：
 
-```
+```bash
 git checkout -b develop remotes/origin/develop
 ```
 不知道切换到什么名字的分支，可先用`git branch -a`查看。
 
 ---
 
-##### 删除本地未提交的新文件
-```
+### 删除本地未提交的新文件
+```bash
 git clean -nfd
 git clean -fd
 ```
@@ -80,13 +97,13 @@ git clean -fd
 
 ---
 
-##### 删除远程分支
+### 删除远程分支
 
-```
+```bash
 git push origin --delete branchName
 ```
 假如我们现在查看远程分支名称：
-```
+```bash
 git branch -a
 origin/HEAD -> origin/master
 origin/develop
@@ -95,44 +112,44 @@ origin/master
 
 如果我们要删除develop分支，则：
 
-```
+```bash
 git push origin --delete develop
 ```
 
 ---
-##### 配置git
+### 配置git
 
 配置用户名跟邮箱地址：
-```
+```bash
 git config --global user.name "willxiang"
 git config --global user.email  "willxiangs@gmail.com"
 ```
 
 查看配置的变量列表
-```
+```bash
 git config --list
 ```
 
-##### 检查是否存在ssh key
+### 检查是否存在ssh key
 
-```
+```bash
 cd ~/.ssh
 ```
 进到此目录，如果该目录没有任何文件，则不存在ssh key
 
 生成ssh key
-```
+```bash
 ssh-keygen -t rsa -C "willxiangs@gmail.com"
 ```
 一路回车，然后会生成id_rsa 和 id_rsa.pub文件
 
 将公钥配置到相关仓库服务器的配置中即可
-```
+```bash
 cat id_rsa.pub
 ```
 
 ---
-##### git config 配置命令
+### git config 配置命令
 
 config配置有3个层级：
 
@@ -172,15 +189,15 @@ git config --global user.email "youremail@email.com"
 
 
 ---
-##### 删除untracked files:
-```
+### 删除untracked files:
+```bash
 git clean -nfd
 ```
 `n`参数表示执行该命令时是测试模拟执行，不会真的执行，因为是删除文件操作，所以建议先执行带`n`的命令，查看好会删除哪些文件，确认后再去掉`n`执行。
 
 ---
 
-##### 配置代理
+### 配置代理
 
 `shadowsocks`:
 

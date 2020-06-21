@@ -29,3 +29,11 @@ mysqld.exe                    4488 Services                   0     22,316 K
 
 也可直接在`任务管理器`中查看。
 
+
+
+### 将命令输出到文本
+
+```bash
+netstat -a -n -o >D:port.txt
+```
+
