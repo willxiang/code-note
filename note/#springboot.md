@@ -121,3 +121,44 @@ dos2unix run.sh
 sh run.sh
 ```
 
+
+
+
+
+### 参数校验
+
+
+
+```xml
+        <!--jsr 303-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <!-- hibernate validator-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.0.Final</version>
+        </dependency>
+```
+
+
+
+```
+   @NotNull：不能为null，但可以为empty(""," ","   ")      
+   @NotEmpty：不能为null，而且长度必须大于0 (" ","  ")
+   @NotBlank：只能作用在String上，不能为null，而且调用trim()后，长度必须大于0("test")    即：必须有实际字符
+```
+
+
+
+```java
+//控制器 添加 @Validated
+//@ControllerAdvice 全局异常处理，要针对 MethodArgumentNotValidException、ConstraintViolationException 做处理。
+
+    public DataResult<List<OrgInfoVO>> orgList(@NotNull(message = "model 不能为空") Integer model, @ApiIgnore User user) {
+        return DataResult.success(orgService.getOrgListByModel(user.getOrgId(), model));
+    }
+```
