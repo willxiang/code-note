@@ -102,6 +102,28 @@ git config --global push.default upstream
 
 ---
 
+#### 本地先打tag（给指定commit打tag）
+```
+git tag -a tagName commit_id -m "my tag"
+```
+`commit_id`: commit id
+`tagName`: tag的名称  
+`"my tag"`: tag的说明
+
+
+#### 推送tag到远端仓库
+```
+git push origin tagName
+```
+
+
+#### 删除远端tag
+```
+git push origin :refs/tags/tagName
+```
+
+
+
 ### 切换到远程的分支：
 
 ```bash
